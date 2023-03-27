@@ -75,37 +75,51 @@ var MovieFinder = function (_React$Component) {
 
       return React.createElement(
         'div',
-        { className: 'container' },
+        { className: 'main-background' },
+        React.createElement(
+          'h1',
+          null,
+          'React Movie Finder'
+        ),
+        React.createElement(
+          'p',
+          null,
+          'By: Emmah Lou Who'
+        ),
         React.createElement(
           'div',
-          { className: 'row' },
+          { className: 'container' },
           React.createElement(
             'div',
-            { className: 'col-12' },
+            { className: 'row' },
             React.createElement(
-              'form',
-              { onSubmit: this.handleSubmit, className: 'form-inline my-4' },
-              React.createElement('input', {
-                type: 'text',
-                className: 'form-control mr-sm-2',
-                placeholder: 'Search',
-                value: searchTerm,
-                onChange: this.handleChange
-              }),
+              'div',
+              { className: 'col-12' },
               React.createElement(
-                'button',
-                { type: 'submit', className: 'btn btn-primary' },
-                'Submit'
-              )
-            ),
-            function () {
-              if (error) {
-                return error;
-              }
-              return results.map(function (movie) {
-                return React.createElement(Movie, { key: movie.imdbID, movie: movie });
-              });
-            }()
+                'form',
+                { onSubmit: this.handleSubmit, className: 'form-inline my-4' },
+                React.createElement('input', {
+                  type: 'text',
+                  className: 'form-control mr-sm-2',
+                  placeholder: 'Search',
+                  value: searchTerm,
+                  onChange: this.handleChange
+                }),
+                React.createElement(
+                  'button',
+                  { type: 'submit', className: 'btn btn-primary' },
+                  'Submit'
+                )
+              ),
+              function () {
+                if (error) {
+                  return error;
+                }
+                return results.map(function (movie) {
+                  return React.createElement(Movie, { key: movie.imdbID, movie: movie });
+                });
+              }()
+            )
           )
         )
       );

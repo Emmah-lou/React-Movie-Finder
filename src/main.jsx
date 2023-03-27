@@ -52,27 +52,31 @@ class MovieFinder extends React.Component {
     render() {
       const { searchTerm, results, error } = this.state;
       return (
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <form onSubmit={this.handleSubmit} className="form-inline my-4">
-                <input
-                  type="text"
-                  className="form-control mr-sm-2"
-                  placeholder="Search"
-                  value={searchTerm}
-                  onChange={this.handleChange}
-                />
-                <button type="submit" className="btn btn-primary">Submit</button>
-              </form>
-              {(() => {
-                if(error) {
-                  return error;
-                }
-                return results.map((movie) => {
-                  return <Movie key={movie.imdbID} movie={movie} />  
-                })
-              })()}
+        <div className="main-background">
+          <h1>React Movie Finder</h1>
+          <p>By: Emmah Lou Who</p>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <form onSubmit={this.handleSubmit} className="form-inline my-4">
+                  <input
+                    type="text"
+                    className="form-control mr-sm-2"
+                    placeholder="Search"
+                    value={searchTerm}
+                    onChange={this.handleChange}
+                  />
+                  <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+                {(() => {
+                  if(error) {
+                    return error;
+                  }
+                  return results.map((movie) => {
+                    return <Movie key={movie.imdbID} movie={movie} />  
+                  })
+                })()}
+              </div>
             </div>
           </div>
         </div>
